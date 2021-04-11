@@ -1,0 +1,29 @@
+name: FireFly
+version: ${project.version}
+main: firefly.firefly.FireFly
+api-version: 1.16
+authors: [ MicrosoftWord12 ]
+description: Custom Mod
+
+# Command Section
+commands:
+  Kick:
+    permission: KickMember
+    description: "Kick a specified player from the server"
+    usage: "Kick bad player"
+
+
+# Permissions section
+permissions:
+  FireFly.KickMember:
+    description: Allows someone to kick a player
+    default: op
+
+  FireFly.PlayerMove:
+    description: Allows a player to move
+    default: op
+
+  FireFly.seeAvailableCommands:
+    description: Allow people to see the server's commands
+    default: op
+
