@@ -7,23 +7,89 @@ description: Custom Mod
 
 # Command Section
 commands:
-  Kick:
-    permission: KickMember
-    description: "Kick a specified player from the server"
-    usage: "Kick bad player"
+#  Kick:
+#    permission: FireFly.KickMember
+#    permission-message: You do not have the permission (FireFly.KickMember)
+#    description: Kick a specified player from the server
+##    usage: /kick _PLAYER_
+#    aliases:
+#      - kick
+#      - kick
+#      - kck
 
+  Feed:
+    description: Feed yourself
+#    usage: /Feed
+    aliases:
+      - fed
+      - feed
+
+  Heal:
+    description: Heal yourself
+#    usage: /Heal
+    aliases:
+      - heal
+
+  Invisible:
+    permission: FireFly.Invisible
+    permission-message: You do not have the permission (FireFly.Invisible)
+    description: Go invisible
+#    usage: /invisible
+    aliases:
+      - hide
+      - hid
+      - vanish
+      - van
+      - invisible
+
+  Invulnerable:
+    permission: FireFly.Invulnerable
+    permission-message: You do not have the permission (FireFly.Invulnerable)
+    description: Go Invulnerable
+#    usage: /invulnerable
+    aliases:
+      - god
+      - invulnerable
+      - God
 
 # Permissions section
 permissions:
-  FireFly.KickMember:
-    description: Allows someone to kick a player
+  FireFly.*:
+    description: Gets All FireFly Permissions
     default: op
+    children:
+#      - FireFly.KickMember
+      - FireFly.PlayerMove
+      - FireFly.seeAvailableCommands
+      - FireFly.Give
+      - FireFly.Invisible
+      - FireFly.Invulnerable
+      - FireFly.SwitchGamemode
+
+#  FireFly.KickMember:
+#    description: Permission to allows someone to kick a player
+#    default: op
 
   FireFly.PlayerMove:
-    description: Allows a player to move
+    description: Permission to allow a player to move
     default: op
 
   FireFly.seeAvailableCommands:
-    description: Allow people to see the server's commands
+    description: Permission to allow people to see the server's commands
     default: op
 
+  FireFly.Give:
+    description: Permission to be able to give a player an item(S)
+    default: op
+
+  FireFly.Invisible:
+    description: Permission to go invisible
+    default: op
+
+  FireFly.Invulnerable:
+    description: Permission for going into God Mode
+    default: op
+
+  FireFly.SwitchGamemode:
+    description: Permission for switching a player gamemode
+    default: op

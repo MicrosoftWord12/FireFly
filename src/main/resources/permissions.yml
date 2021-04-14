@@ -1,8 +1,0 @@
-permissions:
-  KickMember:
-    description: Allows someone to kick a player
-    default: op
-  PlayerMove:
-    description: Allows a player to move
-    default: op
-
