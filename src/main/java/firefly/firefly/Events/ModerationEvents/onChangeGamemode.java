@@ -1,4 +1,4 @@
-package firefly.firefly.Events;
+package firefly.firefly.Events.ModerationEvents;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

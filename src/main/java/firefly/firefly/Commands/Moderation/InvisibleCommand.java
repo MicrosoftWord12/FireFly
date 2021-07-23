@@ -1,5 +1,6 @@
-package firefly.firefly.Moderation;
+package firefly.firefly.Commands.Moderation;
 
+import firefly.firefly.PermissionEnums.Permissions;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -13,7 +14,8 @@ public class InvisibleCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
             Player player = (Player) sender;
-            if (player.hasPermission("FireFly.Invisible")){
+
+            if (player.hasPermission(Permissions.INVISIBLE.name)){
                 if (args.length == 0){
                     if (!player.isInvisible()){
                         player.setInvisible(true);

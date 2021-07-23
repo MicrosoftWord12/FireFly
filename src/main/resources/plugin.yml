@@ -7,15 +7,23 @@ description: Custom Mod
 
 # Command Section
 commands:
-#  Kick:
-#    permission: FireFly.KickMember
-#    permission-message: You do not have the permission (FireFly.KickMember)
-#    description: Kick a specified player from the server
-##    usage: /kick _PLAYER_
-#    aliases:
-#      - kick
-#      - kick
-#      - kck
+  DBinit:
+    permission: FireFly.DB.Admin
+    usage: /DBinit
+    aliases:
+      - dbInit
+      - DBINIT
+      - databaseInit
+
+  Kick:
+    permission: FireFly.KickMember
+    permission-message: You do not have the permission (FireFly.KickMember)
+    description: Kick a specified player from the server
+    usage: /kick <PLAYER> <REASON>
+    aliases:
+      - kick
+      - kick
+      - kck
 
   Feed:
     description: Feed yourself
@@ -66,9 +74,9 @@ permissions:
       - FireFly.Invulnerable
       - FireFly.SwitchGamemode
 
-#  FireFly.KickMember:
-#    description: Permission to allows someone to kick a player
-#    default: op
+  FireFly.KickMember:
+    description: Permission to allows someone to kick a player
+    default: op
 
   FireFly.PlayerMove:
     description: Permission to allow a player to move
@@ -93,3 +101,9 @@ permissions:
   FireFly.SwitchGamemode:
     description: Permission for switching a player gamemode
     default: op
+
+  FireFly.DB.Admin:
+    description: Database Administration
+    default: false
+
+

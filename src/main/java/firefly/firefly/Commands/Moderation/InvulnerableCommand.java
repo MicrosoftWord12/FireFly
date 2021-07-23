@@ -1,5 +1,6 @@
-package firefly.firefly.Moderation;
+package firefly.firefly.Commands.Moderation;
 
+import firefly.firefly.PermissionEnums.Permissions;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +13,7 @@ public class InvulnerableCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
             Player player = (Player) sender;
-            if (player.hasPermission("FireFly.Invulnerable")){
+            if (player.hasPermission(Permissions.INVULNERABLE.name)){
                 if (args.length == 0){
                     if (!player.isInvulnerable()){
                         player.setInvulnerable(true);
