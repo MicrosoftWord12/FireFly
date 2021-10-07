@@ -15,6 +15,35 @@ commands:
       - DBINIT
       - databaseInit
 
+  claim:
+    permission: FireFly.ClaimChunk
+    permission-message: You don't have the claim chunk permission
+    description: Claims a chunk for a specified player
+    usage: /claim
+    aliases:
+      - claim
+      - Claim
+      - ChunkClaim
+      - chunk
+
+  removeClaim:
+    permission: FireFly.ClaimChunk
+    permission-message: You don't have the claim chunk permission
+    description: Removes a player from chunk
+    usage: /RemovePlayerFromChunk
+    aliases:
+      - removePlayer
+      - playerRemove
+
+  addPlayerToClaim:
+    permission: FireFly.ClaimChunk
+    permission-message: You don't have the claim chunk permission
+    description: Adds a player to the chunk
+    usage: /addPlayerToClaim <PLAYER TO ADD> <OWNER>
+    aliases:
+      - addPlayer
+      - playerAdd
+
   Kick:
     permission: FireFly.KickMember
     permission-message: You do not have the permission (FireFly.KickMember)
@@ -47,8 +76,6 @@ commands:
       - hide
       - hid
       - vanish
-      - van
-      - invisible
 
   Invulnerable:
     permission: FireFly.Invulnerable
@@ -59,6 +86,14 @@ commands:
       - god
       - invulnerable
       - God
+
+  freeze:
+    permission: FireFly.Freeze
+    permission-message: You do not hav ethe permission (FireFly.Freeze)
+    description: Able to Freeze people
+    usage: /freeze <PLAYER>
+    aliases:
+      - Freeze
 
 # Permissions section
 permissions:
@@ -73,6 +108,7 @@ permissions:
       - FireFly.Invisible
       - FireFly.Invulnerable
       - FireFly.SwitchGamemode
+      - FireFly.ClaimChunk
 
   FireFly.KickMember:
     description: Permission to allows someone to kick a player
@@ -106,4 +142,11 @@ permissions:
     description: Database Administration
     default: false
 
+  FireFly.ClaimChunk:
+    description: Claims Chunk
+    default: true
+
+  FireFly.Freeze:
+    description: Able to freeze people
+    default: op
 

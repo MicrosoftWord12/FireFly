@@ -22,11 +22,18 @@ public class KickCommand implements CommandExecutor {
             if (args.length == 0) {
                 player.sendMessage(ChatColor.RED + "You need to specify the person for the kick");
             }
+
 //            TARGET PLAYER = args[0]
             Player target = Bukkit.getServer().getPlayerExact(args[0]);
             assert target != null;
-            String reason = "Kicked by Admin";
-            target.kickPlayer(reason);
+
+            StringBuilder reason = new StringBuilder(args[1]);
+            for (int i = 1; i < args.length; i++){
+                reason.append(args[i]);
+            }
+
+
+            target.kickPlayer(reason.toString());
             player.sendMessage(ChatColor.LIGHT_PURPLE + target.getDisplayName() + " Has been kicked from the server with the reason "+ ChatColor.GREEN + reason);
 //            COLOURED CONSOLE
             Bukkit.getConsoleSender().sendMessage(ChatColor.RED + target.getDisplayName() + " " + ChatColor.GREEN + "Has been kicked from the server by " + ChatColor.GREEN + player.getDisplayName() + " For the reason " + ChatColor.YELLOW + reason);
