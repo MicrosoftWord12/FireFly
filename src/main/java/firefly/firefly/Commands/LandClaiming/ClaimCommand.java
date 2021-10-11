@@ -1,7 +1,10 @@
 package firefly.firefly.Commands.LandClaiming;
 
 
+
+import firefly.firefly.Commands.Utils.LandClaiming.BaseClaim;
 import firefly.firefly.FireFly;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.command.Command;
@@ -11,30 +14,57 @@ import org.bukkit.entity.Player;
 
 public class ClaimCommand implements CommandExecutor {
 
-    private final FireFly plugin;
-    private final Claim claim;
+    private final BaseClaim claim;
 
-    public ClaimCommand(FireFly plugin){
-        this.plugin = plugin;
+
+    public ClaimCommand(BaseClaim claim){
+        this.claim = claim;
     }
+
+
+
+    public void addPlayerToClaim(String[] args, Player player){
+        if (args.length == 4){
+            Player target = Bukkit.getPlayerExact(args[3]);
+            System.out.println(target.getDisplayName());
+            claim.addClaim(claim.getChunkID(target), player.getUniqueId());
+        }
+
+    }
+
+    public void removePlayerFromClaim(String[] args, Player owner){
+        if (args.length == 4){
+            Player target = Bukkit.getPlayerExact(args[3]);
+            claim.removePlayerFromOwnedClaim(claim.getChunkID(owner), owner.getUniqueId(), target.getUniqueId());
+        }
+    }
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
             Player player = (Player) sender;
-//            System.out.println("This is a test");
-            Chunk chunk = player.getLocation().getChunk();
 
-            String chunkId = chunk.getX() + "." + chunk.getZ();
-//            plugin.getServer().getConsoleSender().sendMessage(chunkId + "This is a test");
-            if (claim.isChunk(chunkId)){
-                player.sendMessage("This chunk is already claimed");
+            if(!claim.isClaimed(claim.getChunkID(player), player)){
+                if (args.length == 1){
+                    if (args[0].equalsIgnoreCase("add"))
+                        player.sendMessage(ChatColor.GREEN + "Your land is claimed");
+                    claim.addClaim(claim.getChunkID(player), player.getUniqueId());
+                }
+                if (args.length == 2){
+                    if (args[0].equalsIgnoreCase("add"))
+                        if (args[1].equalsIgnoreCase("player"))
+                            addPlayerToClaim(args, player);
+
+                    if (args[0].equalsIgnoreCase("remove"))
+                        if (args[1].equalsIgnoreCase("player"))
+                            removePlayerFromClaim(args, player);
+                }
             }else{
-                claim.addChunk(chunkId, player.getUniqueId());
-                player.sendMessage(ChatColor.GREEN + "Welcome to your new Chunk");
+                player.sendMessage("Apparantly its saved?");
             }
         }
-        return false;
+        return true;
     }
 
 

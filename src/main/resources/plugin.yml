@@ -39,10 +39,15 @@ commands:
     permission: FireFly.ClaimChunk
     permission-message: You don't have the claim chunk permission
     description: Adds a player to the chunk
-    usage: /addPlayerToClaim <PLAYER TO ADD> <OWNER>
+    usage: /addPlayerToClaim <PLAYER TO ADD>
     aliases:
       - addPlayer
       - playerAdd
+  removePlayerFromClaim:
+    permission: FireFly.ClaimChunk
+    permission-message: You don't have the claim chunk permision
+    description: Removes a player from the owner's chunk
+    usage: /removePlayerFromClaim <PLAYER TO REMOVE>
 
   Kick:
     permission: FireFly.KickMember

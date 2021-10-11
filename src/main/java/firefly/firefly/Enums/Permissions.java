@@ -1,4 +1,4 @@
-package firefly.firefly.PermissionEnums;
+package firefly.firefly.Enums;
 
 public enum Permissions {
 //    ALLPERMS("FireFly.*"),

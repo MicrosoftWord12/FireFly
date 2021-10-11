@@ -1,6 +1,6 @@
 package firefly.firefly.Commands.Moderation;
 
-import firefly.firefly.PermissionEnums.Permissions;
+import firefly.firefly.Enums.Permissions;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
