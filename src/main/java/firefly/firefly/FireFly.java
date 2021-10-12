@@ -36,7 +36,7 @@ public final class FireFly extends JavaPlugin {
         this.configYML.reloadConfig();
 
         World world = Bukkit.getWorld("world");
-        assert world != null;
+//        assert world != null;
         world.setDifficulty(Difficulty.EASY);
         world.setGameRule(GameRule.KEEP_INVENTORY, true);
         world.setSpawnLocation(-503, 64, -224);
