@@ -1,4 +1,4 @@
-package firefly.firefly.Commands.Utils.ConfigFile;
+package firefly.firefly.Commands.Utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -41,7 +41,7 @@ public class ConfigYML {
         this.dataConfig = YamlConfiguration.loadConfiguration(this.configFile);
     }
 
-    public FileConfiguration getConfig() {
+    public FileConfiguration get() {
         if (this.dataConfig == null){
             System.out.println("No Config file");
             this.reloadConfig();
@@ -54,7 +54,7 @@ public class ConfigYML {
             reloadConfig();
         }
         try{
-            this.getConfig().save(this.configFile);
+            this.get().save(this.configFile);
         }catch (IOException e){
             Bukkit.getServer().getLogger().log(Level.SEVERE, "Could not save config to " + this.configFile, e);
         }
