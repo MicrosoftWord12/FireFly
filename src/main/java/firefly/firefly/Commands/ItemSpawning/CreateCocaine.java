@@ -21,6 +21,7 @@ public class CreateCocaine {
     }
 
 
+
     private static void createCoke(){
         ItemStack item = new ItemStack(Material.SUGAR, 10);
         ItemMeta meta = item.getItemMeta();
@@ -41,6 +42,8 @@ public class CreateCocaine {
         coke = item;
     }
 
-
+    public static ItemStack getCoke(){
+        return getCoke();
+    }
 
 }

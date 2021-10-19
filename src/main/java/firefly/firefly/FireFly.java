@@ -3,6 +3,7 @@ package firefly.firefly;
 //import firefly.firefly.Commands.Database.DBTableCmd;
 //import firefly.firefly.Database.Database;
 import firefly.firefly.Commands.ItemSpawning.CreateCocaine;
+import firefly.firefly.Commands.ItemSpawning.CreateSpeedBook;
 import firefly.firefly.Commands.ItemSpawning.CreateWeed;
 import firefly.firefly.Commands.Utils.ConfigYML;
 import firefly.firefly.Commands.Moderation.*;
@@ -10,8 +11,6 @@ import firefly.firefly.Events.*;
 import firefly.firefly.Commands.Misc.FeedCommand;
 import firefly.firefly.Commands.Misc.HealCommand;
 import firefly.firefly.Events.ModerationEvents.onChangeGamemode;
-import firefly.firefly.Events.Signs.onInteractEvent;
-import firefly.firefly.Events.Signs.onSignClick;
 import org.bukkit.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -39,6 +38,7 @@ public final class FireFly extends JavaPlugin {
         // Items
         CreateCocaine.init();
         CreateWeed.init();
+        CreateSpeedBook.init();
 
         // Misc/Admin
         Objects.requireNonNull(getCommand("Invisible")).setExecutor(new InvisibleCommand());
@@ -48,13 +48,12 @@ public final class FireFly extends JavaPlugin {
         Objects.requireNonNull(getCommand("Kick")).setExecutor(new KickCommand());
 
 //        getServer().getPluginManager().registerEvents(new onMove(this), this);
+        getServer().getPluginManager().registerEvents(new onSignClick(), this);
         getServer().getPluginManager().registerEvents(new onPlayerSignClick(), this);
         getServer().getPluginManager().registerEvents(new onPlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new onPlayerLeave(), this);
         getServer().getPluginManager().registerEvents(new onChangeGamemode(), this);
         getServer().getPluginManager().registerEvents(new onServerPing(), this);
-//        getServer().getPluginManager().registerEvents(new onSignClick(), this);
-        getServer().getPluginManager().registerEvents(new onInteractEvent(), this);
         getServer().getConsoleSender().sendMessage(ChatColor.RED + "The " + getName() + ChatColor.RED + " Plugin is online");
     }
 
